@@ -1,0 +1,9 @@
+﻿# Node / React
+node_modules/
+dist/
+build/
+.env
+*.env
+serviceAccountKey.json
+*.key
+*.pem
