@@ -5,8 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import LeadForm from "./components/LeadForm";
 import LeadsTable from "./components/LeadsTable";
-import SignUp from "./components/SignUp";
-import "./styles.css";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -36,7 +35,7 @@ export default function App() {
             <Link to="/" className="nav-button">Home</Link>
             <Link to="/about" className="nav-button">About</Link>
             <Link to="/get-started" className="nav-button">Get Started</Link>
-            <Link to="/signup" className="nav-button">Sign Up</Link>
+            <Link to="/dashboard" className="nav-button">Dashboard</Link>
           </nav>
         </div>
       </header>
@@ -45,12 +44,23 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/get-started" element={<LeadForm />} />
-          <Route path="/dashboard" element={<LeadsTable />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/about"
+            element={About ? <About /> : <div style={{ padding: 32 }}>About (placeholder)</div>}
+          />
+          <Route
+            path="/get-started"
+            element={LeadForm ? <LeadForm /> : <div style={{ padding: 32 }}>Get Started (placeholder)</div>}
+          />
+          <Route
+            path="/dashboard"
+            element={LeadsTable ? <LeadsTable /> : <div style={{ padding: 32 }}>Dashboard (placeholder)</div>}
+          />
         </Routes>
       </main>
+
+      {/* GLOBAL FOOTER — single instance for all pages */}
+      <Footer />
     </Router>
   );
 }
